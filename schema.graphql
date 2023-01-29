@@ -1,0 +1,61 @@
+schema {
+    query: Query
+    mutation: Mutation
+}
+
+type User {
+    id: ID!
+    name: String!
+    email: String!
+    isAdmin: Boolean!
+    created_at: String!
+    updated_at: String!
+    memberships: [Club]
+}
+
+type UserResult {
+    success: Boolean!
+    errors: [String]
+    user: User
+}
+
+type UsersResult {
+    success: Boolean!
+    errors: [String]
+    users: [User]
+}
+
+type Club {
+    id: ID!
+    name: String!
+    created_at: String
+    updated_at: String
+}
+
+type ClubResult {
+    success: Boolean!
+    errors: [String]
+    clubs: Club
+}
+
+type ClubsResult {
+    success: Boolean!
+    errors: [String]
+    club: [Club]
+}
+
+type Query {
+    listUsers: UsersResult!
+    listClubs: ClubsResult!
+    getUser(id: ID!): UserResult!
+    getClub(id: ID!): ClubResult!
+}
+
+type Mutation {
+    createUser(name: String!, email: String!, created_at: String!): UserResult!
+    updateUser(id: ID!, name: String, email: String, club_ids: String): UserResult!
+    deleteUser(id: ID!): UserResult!
+    createClub(name: String!, created_at: String, updated_at: String): ClubResult!
+    updateClub(id: ID!, name: String, updated_at: String): ClubResult!
+    deleteClub(id: ID!): ClubResult!
+}

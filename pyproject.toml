@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "sandingTowerAPI"
+version = "0.1.0"
+description = "An API for Locomotive House"
+authors = ["Ryan Balla <ryan@ryanballa.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+ariadne = "^0.17.1"
+flask = "^2.2.2"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
